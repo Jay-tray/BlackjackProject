@@ -26,15 +26,13 @@ public class Dealer extends Player {
 
 	// dealers deals
 	public void playerPlay(Player player) {
-		System.out.println("You cards are: " + player.bjHand + ". Current total is " + player.bjHand.getHandValue());
+		System.out.println("Your cards are: " + player.bjHand + ". Your current total is " + player.bjHand.getHandValue() + ".");
 		
-		if (player.bjHand.isBust()) {
-			System.out.println("Better luck next time!");
-			return;
-		} else if (player.bjHand.isBlackjack()) {
-			System.out.println("Congrats, you got a blackjack!!");
-			return;
-		} 
+		/*
+		 * if (player.bjHand.isBust()) { System.out.println("Better luck next time!");
+		 * return; } else if (player.bjHand.isBlackjack()) {
+		 * System.out.println("Congrats, you got a blackjack!!"); return; }
+		 */
 		
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Would you like to hit or stand?");
@@ -47,35 +45,36 @@ public class Dealer extends Player {
 				break;
 			}
 			
-			System.out.println("You cards are: " + player.bjHand + ". Current total is " + player.bjHand.getHandValue());
+			System.out.println("Your cards are: " + player.bjHand + ". Your current total is " + player.bjHand.getHandValue() + ".");
 			System.out.println("Would you like to hit or stand?");
 			input = scanner.nextLine();
 		}
 		
-		System.out.println("You cards are: " + player.bjHand + ". Current total is " + player.bjHand.getHandValue());
+		System.out.println("Your cards are: " + player.bjHand + ". Your current total is " + player.bjHand.getHandValue() + ".");
+		
 	}
 
 	public void dealerPlay(Player player) {
-		System.out.println("Dealer cards are: " + this.bjHand + ". Current total is " + this.bjHand.getHandValue());
 		
 		if (player.bjHand.isBust() || player.bjHand.isBlackjack()) {
 			return;
 		}
+		System.out.println("Dealer cards are: " + this.bjHand + ". Their current total is " + this.bjHand.getHandValue() + ".");
 		
 		while (this.bjHand.getHandValue() <= 16) {
 			this.bjHand.addCard(deck.dealCard());
-			System.out.println("Dealer cards are: " + this.bjHand + ". Current total is " + this.bjHand.getHandValue());
+			System.out.println("Dealer cards are: " + this.bjHand + ". Their current total is " + this.bjHand.getHandValue() + ".");
 		}
 		
 	}
 	
 	public void determineWinner(Player player) {
 		if (player.bjHand.isBust()) {
-			System.out.println("Player has busted! Dealer wins!");
+			System.out.println("Player busted! Dealer wins!");
 		} else if (player.bjHand.isBlackjack()) {
-			System.out.println("Congrats, you got a blackjack!! You win!!");
+			System.out.println("Congrats, BLACKJACK! You win!");
 		} else if (this.bjHand.isBust()) {
-			System.out.println("Dealer busts. Player wins!!");
+			System.out.println("Dealer busts. Player wins!");
 		} else if (player.bjHand.getHandValue() > this.bjHand.getHandValue()) {
 			System.out.println("Player has won!");
 		} else if (player.bjHand.getHandValue() < this.bjHand.getHandValue()) {
@@ -94,13 +93,3 @@ public class Dealer extends Player {
 		player.bjHand.clear();
 	}
 }
-
-//dealer greets player
-//dealer shuffles cards
-//dealer then begins to deal 
-//if player hits 21 on first deal its a black jack 
-//if not dealer then deals per players instructions
-//dealer then plays, if dealer has less than 17 they hit
-//if they have more they stand
-//determine winner 
-//initiate new game 

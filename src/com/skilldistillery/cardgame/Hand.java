@@ -1,7 +1,6 @@
 package com.skilldistillery.cardgame;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import com.skilldistillery.cards.Card;
@@ -29,7 +28,7 @@ public abstract class Hand {
 	}
 
 	public abstract int getHandValue(); // abstract
-	
+
 	@Override
 	public String toString() {
 		return numCards.toString();

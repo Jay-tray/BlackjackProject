@@ -22,6 +22,7 @@ public class BlackjackApp {
 		String input;
 		
 		System.out.println("Welcome to the Blackjack table!");
+		System.out.println();
 		
 		// Shuffle and deals
 		dealer.shuffleCards();
@@ -38,8 +39,12 @@ public class BlackjackApp {
 			System.out.println("Would you like to play again (yes / no)?");
 			input = scanner.nextLine();
 		} while (input.equalsIgnoreCase("yes") && dealer.getRemainingCards() > 8);
+		if (dealer.getRemainingCards() <= 8) {
+			System.out.println("Dealer has to swap out decks. PITBOSS is coming to oversee! We will get back to playing shortly, enjoy a drink while you wait.");
+		}
 		
 		System.out.println("Thanks for playing!!");
+	
 	}
-
+	 
 }
