@@ -30,7 +30,7 @@ public class Deck {
 		}
 	}
 
-	public int checkDeckSizwe() {
+	public int checkDeckSize() {
 		return deck.size();
 	}
 
